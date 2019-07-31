@@ -37,6 +37,7 @@ def blogpost(request):
     if request.method == 'POST':
         form = BlogPost(request.POST)
         if form.is_valid():
+            # is_valid는 입력값 없을 시 등 예외시 오류 띄워줌.
             # 저장하지 않고 모델 객체 반환
             post = form.save(commit=False)
             post.pub_date = timezone.now()
